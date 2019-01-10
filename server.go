@@ -39,7 +39,7 @@ func hello(c echo.Context) error {
 }
 
 type Post struct {
-	name string `json:"name"`
+	Name string `json:"name"`
 }
 
 func post(c echo.Context) (err error) {
@@ -47,7 +47,7 @@ func post(c echo.Context) (err error) {
 	if err = c.Bind(p); err != nil {
 		return err
 	}
-	result := fmt.Sprintf("name:%s", p.name)
+	result := fmt.Sprintf("name:%s", p.Name)
 	os.Stdout.Write([]byte(result + "\n"))
 	return c.JSON(http.StatusOK, p)
 }
